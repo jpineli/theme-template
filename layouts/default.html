@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="pt-br" data-store="{{ store.id }}">
+<head>
+    {{ html.charset() }}
+    {{ tray.meta }}
+    <!-- [if IE]<meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ themePath }}css/bootstrap/bootstrap.min.css?{{ utils.assets_version }}">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300,700">
+    <link rel="stylesheet" href="{{ themePath }}css/theme.min.css?{{ utils.assets_version }}">
+    {{ tray.scripts }}
+</head>
+<body>
+
+    {{ _view.element('header') }}
+
+    {{ _view.element('banners/banner_main') }}
+
+    <div class="container{% if pages.current == 'home' %}-fluid{% endif %}">
+        <div class="content row">
+            <div class="col-sm-12">
+                {{ content_for_layout }}
+            </div>
+        </div>
+    </div>
+    
+    {{ _view.element('footer') }}
+
+    {{ html.script('dist/application.min.js?' ~ utils.assets_version) }}
+
+</body>
+</html>
